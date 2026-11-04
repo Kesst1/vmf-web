@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VMF Community — Roblox & Discord</title>
     <style>
-        /* --- ESTILOS GENERALES (TEMA CLARO PREMUM: BLANCO / GRIS OSCURO / NEGRO) --- */
+        /* --- ESTILOS GENERALES (TEMA BLANCO / GRIS OSCURO / NEGRO) --- */
         :root {
             --bg-main: #ffffff;
             --bg-card: #f8fafc;
@@ -53,7 +53,6 @@
             gap: 12px;
         }
 
-        /* El logo es blanco, así que le agregamos un contenedor oscuro elegante en el nav */
         .logo-img-wrapper {
             background-color: var(--accent-black);
             padding: 6px 12px;
@@ -205,6 +204,7 @@
         .badge-admin { background-color: #0f172a; color: #ffffff; }
         .badge-referee { background-color: #334155; color: #ffffff; }
         .badge-mod { background-color: #64748b; color: #ffffff; }
+        .badge-verified { background-color: #10b981; color: #ffffff; }
 
         /* --- TABLA DE VERIFICADOS & BUSCADOR --- */
         .search-box {
@@ -279,7 +279,6 @@
     <header>
         <div class="logo-container">
             <div class="logo-img-wrapper">
-                <!-- Se incluye la imagen del logo -->
                 <img src="VMF-removebg-preview.png" alt="Logo VMF">
             </div>
             <span class="logo-text">VMF SYSTEM</span>
@@ -287,7 +286,7 @@
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#staff">Staff & Roles</a>
-            <a href="#verificados">Verificados</a>
+            <a href="#verificados">Community Verified</a>
             <a href="#spreadsheets">Spreadsheet</a>
         </nav>
     </header>
@@ -299,8 +298,8 @@
                 <img src="VMF-removebg-preview.png" alt="Logo VMF Grande">
             </div>
             <h1>Comunidad Oficial VMF</h1>
-            <p>Portal oficial de información, vinculación con Roblox, lista de miembros y seguimiento de tablas de liga.</p>
-            <a href="#verificados" class="btn">Ver Lista de Jugadores</a>
+            <p>Portal oficial de información, vinculación con Roblox, lista de miembros verificados y seguimiento de tablas de liga.</p>
+            <a href="#verificados" class="btn">Ver Miembros Verificados</a>
         </section>
 
         <!-- 2. STAFF Y ROLES -->
@@ -330,34 +329,35 @@
             </div>
         </section>
 
-        <!-- 3. TABLA DE JUGADORES VERIFICADOS -->
+        <!-- 3. TABLA DE USUARIOS CON ROL COMMUNITY VERIFIED -->
         <section id="verificados">
-            <h2>Jugadores Verificados</h2>
-            <input type="text" id="searchInput" class="search-box" placeholder="Buscar por usuario de Roblox o Discord ID...">
+            <h2>Jugadores Community Verified</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Miembros que han completado su vinculación de Discord y Roblox en el servidor:</p>
+            <input type="text" id="searchInput" class="search-box" placeholder="Buscar por usuario de Roblox o ID...">
             
             <table id="playersTable">
                 <thead>
                     <tr>
                         <th>Roblox Username</th>
                         <th>Roblox ID</th>
-                        <th>Estado</th>
+                        <th>Rol en Servidor</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>KestLw</td>
                         <td>385090651</td>
-                        <td><span style="color: #0f172a; font-weight: bold;">✔ Verificado</span></td>
+                        <td><span class="role-badge badge-verified" style="margin:0;">Community Verified</span></td>
                     </tr>
                     <tr>
                         <td>PlayerTwo</td>
                         <td>123456789</td>
-                        <td><span style="color: #0f172a; font-weight: bold;">✔ Verificado</span></td>
+                        <td><span class="role-badge badge-verified" style="margin:0;">Community Verified</span></td>
                     </tr>
                     <tr>
                         <td>PlayerThree</td>
                         <td>987654321</td>
-                        <td><span style="color: #0f172a; font-weight: bold;">✔ Verificado</span></td>
+                        <td><span class="role-badge badge-verified" style="margin:0;">Community Verified</span></td>
                     </tr>
                 </tbody>
             </table>
