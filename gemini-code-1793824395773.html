@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMF Community — Roblox & Discord</title>
+    <style>
+        /* --- ESTILOS GENERALES Y TEMA DARK --- */
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #2bc068;
+            --primary-hover: #229953;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        header {
+            background-color: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* --- SECCIONES --- */
+        container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(180deg, rgba(43,192,104,0.1) 0%, rgba(15,23,42,0) 100%);
+            border-radius: 12px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* --- GRILLA DE STAFF / ROLES --- */
+        .grid-staff {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-admin { background-color: #e74c3c; color: white; }
+        .badge-referee { background-color: #f1c40f; color: black; }
+        .badge-mod { background-color: #3498db; color: white; }
+
+        /* --- TABLA DE VERIFICADOS & BUSCADOR --- */
+        .search-box {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #0f172a;
+            color: var(--primary);
+        }
+
+        /* --- SECCIÓN SPREADSHEETS (IFRAME) --- */
+        .spreadsheet-container {
+            width: 100%;
+            height: 500px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--bg-card);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header>
+        <div class="logo">VMF SYSTEM</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#staff">Staff & Roles</a>
+            <a href="#verificados">Verificados</a>
+            <a href="#spreadsheets">Spreadsheet</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- 1. INICIO / HERO -->
+        <section id="inicio" class="hero">
+            <h1>Comunidad Oficial VMF</h1>
+            <p>Portal oficial de información, vinculación con Roblox, lista de miembros y seguimiento de tablas de liga.</p>
+            <a href="#verificados" class="btn">Ver Lista de Jugadores</a>
+        </section>
+
+        <!-- 2. STAFF Y ROLES -->
+        <section id="staff">
+            <h2>Equipo y Administración</h2>
+            <div class="grid-staff">
+                <div class="card">
+                    <span class="role-badge badge-admin">Administrador</span>
+                    <h3>KestLw</h3>
+                    <p style="color: var(--text-muted);">Fundador & Backend Dev</p>
+                </div>
+                <div class="card">
+                    <span class="role-badge badge-referee">Árbitro Oficial</span>
+                    <h3>Arbitro_01</h3>
+                    <p style="color: var(--text-muted);">Encargado de Partidos</p>
+                </div>
+                <div class="card">
+                    <span class="role-badge badge-referee">Árbitro Oficial</span>
+                    <h3>Arbitro_02</h3>
+                    <p style="color: var(--text-muted);">Encargado de Partidos</p>
+                </div>
+                <div class="card">
+                    <span class="role-badge badge-mod">Moderador</span>
+                    <h3>Mod_Discord</h3>
+                    <p style="color: var(--text-muted);">Soporte de Discord</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TABLA DE JUGADORES VERIFICADOS -->
+        <section id="verificados">
+            <h2>Jugadores Verificados</h2>
+            <input type="text" id="searchInput" class="search-box" placeholder="Buscar por usuario de Roblox o Discord ID...">
+            
+            <table id="playersTable">
+                <thead>
+                    <tr>
+                        <th>Roblox Username</th>
+                        <th>Roblox ID</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KestLw</td>
+                        <td>385090651</td>
+                        <td><span style="color: var(--primary); font-weight: bold;">✔ Verificado</span></td>
+                    </tr>
+                    <tr>
+                        <td>PlayerTwo</td>
+                        <td>123456789</td>
+                        <td><span style="color: var(--primary); font-weight: bold;">✔ Verificado</span></td>
+                    </tr>
+                    <tr>
+                        <td>PlayerThree</td>
+                        <td>987654321</td>
+                        <td><span style="color: var(--primary); font-weight: bold;">✔ Verificado</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 4. SPREADSHEETS -->
+        <section id="spreadsheets">
+            <h2>Clasificación y Spreadsheets</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Consulta las tablas actualizadas en tiempo real desde Google Sheets:</p>
+            <div class="spreadsheet-container">
+                <!-- Sustituye la URL del src por el enlace iFrame público de tu Google Sheet -->
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRXXXXX/pubhtml?widget=true&amp;headers=false"></iframe>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2026 VMF Community — Todos los derechos reservados.
+    </footer>
+
+    <!-- JAVASCRIPT PURO PARA BUSCADOR Y FUNCIONES -->
+    <script>
+        // Buscador en tiempo real para la tabla de jugadores
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let rows = document.querySelectorAll('#playersTable tbody tr');
+
+            rows.forEach(row => {
+                let text = row.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
